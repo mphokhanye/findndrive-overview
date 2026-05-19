@@ -4,164 +4,145 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Find and Drive — Sales Process</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --ink: #0a0a0a;
-  --paper: #f4f1ea;
-  --mid: #888;
+  --ink:        #111111;
+  --ink-mid:    #555555;
+  --ink-light:  #999999;
+  --paper:      #ffffff;
+  --surface:    #f7f7f5;
+  --rule:       #e8e8e4;
 
   /* Stakeholder colours */
-  --do: #1a8cff;        /* DealersOnline — blue */
-  --do-soft: rgba(26,140,255,0.1);
-  --do-border: rgba(26,140,255,0.3);
+  --do:         #1a6ef5;
+  --do-soft:    #eef3ff;
+  --do-border:  #c5d8ff;
+  --do-label:   #1048a8;
 
-  --fnd: #c8f542;       /* Find and Drive — lime */
-  --fnd-dark: #8fb82d;
-  --fnd-soft: rgba(200,245,66,0.12);
-  --fnd-border: rgba(200,245,66,0.35);
+  --fnd:        #4db849;
+  --fnd-dark:   #2d7a2a;
+  --fnd-soft:   #edfaec;
+  --fnd-border: #b6e8b4;
+  --fnd-label:  #236621;
 
-  --sg: #ff6b2b;        /* Supergroup — orange */
-  --sg-soft: rgba(255,107,43,0.1);
-  --sg-border: rgba(255,107,43,0.3);
+  --sg:         #e05a1a;
+  --sg-soft:    #fff2eb;
+  --sg-border:  #ffc8a8;
+  --sg-label:   #923a0d;
 }
 
 html { font-size: 15px; }
 
 body {
-  background: var(--ink);
+  background: #eeede8;
   font-family: 'DM Sans', sans-serif;
-  color: var(--paper);
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
+  color: var(--ink);
 }
 
-/* ══ WRAPPER ══ */
+/* ══ PAGE ══ */
 .page {
   width: 100%;
-  padding: 56px 60px 64px;
-  position: relative;
-  overflow: hidden;
-  background: var(--ink);
+  max-width: 1080px;
+  margin: 40px auto;
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 60px 64px 72px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.08);
 }
-
-/* Subtle grid texture */
-.page::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-}
-
-/* Glow blobs */
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(80px);
-  opacity: 0.35;
-}
-.glow-1 { width: 500px; height: 500px; background: var(--fnd); top: -200px; right: -100px; }
-.glow-2 { width: 400px; height: 400px; background: var(--do); bottom: 100px; left: -120px; }
-.glow-3 { width: 300px; height: 300px; background: var(--sg); bottom: -100px; right: 200px; }
 
 /* ══ HEADER ══ */
 .doc-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 52px;
-  position: relative;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
 }
 
-.brand-block {}
 .brand-tag {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 8px;
+  color: var(--ink-light);
+  margin-bottom: 10px;
 }
 .brand-name {
   font-family: 'Syne', sans-serif;
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
+  color: var(--ink);
+  letter-spacing: -1px;
   line-height: 1;
 }
 .brand-name span { color: var(--fnd); }
 
-.doc-meta {
-  text-align: right;
-}
+.doc-meta { text-align: right; }
 .doc-title {
   font-family: 'Syne', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 6px;
+  color: var(--ink-mid);
+  margin-bottom: 5px;
 }
 .doc-sub {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
+  color: var(--ink-light);
 }
 
 /* ══ LEGEND ══ */
 .legend {
   display: flex;
-  gap: 28px;
-  margin-bottom: 48px;
-  position: relative;
   align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 .legend-label {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-right: 8px;
+  color: var(--ink-light);
+  margin-right: 6px;
 }
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 3px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.07);
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1.5px solid;
 }
+.legend-item.do  { border-color: var(--do-border); background: var(--do-soft); }
+.legend-item.fnd { border-color: var(--fnd-border); background: var(--fnd-soft); }
+.legend-item.sg  { border-color: var(--sg-border); background: var(--sg-soft); }
 .legend-dot {
-  width: 10px; height: 10px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 .legend-dot.fnd { background: var(--fnd); }
-.legend-dot.do { background: var(--do); }
-.legend-dot.sg { background: var(--sg); }
+.legend-dot.do  { background: var(--do); }
+.legend-dot.sg  { background: var(--sg); }
 .legend-text {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   font-weight: 500;
 }
-.legend-item.fnd .legend-text { color: var(--fnd); }
-.legend-item.do .legend-text { color: var(--do); }
-.legend-item.sg .legend-text { color: var(--sg); }
+.legend-item.do  .legend-text { color: var(--do-label); }
+.legend-item.fnd .legend-text { color: var(--fnd-label); }
+.legend-item.sg  .legend-text { color: var(--sg-label); }
 
 /* ══ SECTION HEADING ══ */
 .section-heading {
@@ -169,8 +150,8 @@ body {
   font-size: 10px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
-  margin-bottom: 24px;
+  color: var(--ink-light);
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -179,198 +160,20 @@ body {
   content: '';
   flex: 1;
   height: 1px;
-  background: rgba(255,255,255,0.07);
+  background: var(--rule);
 }
 
-/* ══ FLOW CHART ══ */
-.flow-chart {
-  position: relative;
-  margin-bottom: 52px;
-}
-
-/* Connector line running behind all steps */
-.flow-connector {
-  position: absolute;
-  left: 32px;
-  top: 28px;
-  bottom: 28px;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--do) 0%,
-    var(--do) 16%,
-    var(--fnd) 16%,
-    var(--fnd) 68%,
-    var(--sg) 68%,
-    var(--sg) 100%
-  );
-  opacity: 0.35;
-  z-index: 0;
-}
-
-.flow-step {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 0;
-  margin-bottom: 16px;
-}
-.flow-step:last-child { margin-bottom: 0; }
-
-/* Step number bubble */
-.step-bubble {
-  display: flex;
-  align-items: flex-start;
-  padding-top: 18px;
-}
-.bubble {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-}
-.bubble.fnd { background: var(--fnd); color: var(--ink); }
-.bubble.do  { background: var(--do);  color: #fff; }
-.bubble.sg  { background: var(--sg);  color: #fff; }
-
-/* Step card */
-.step-card {
-  border-radius: 6px;
-  padding: 20px 24px;
-  margin-left: 12px;
-  position: relative;
-  overflow: hidden;
-}
-.step-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  border-radius: 3px 0 0 3px;
-}
-
-.step-card.fnd {
-  background: var(--fnd-soft);
-  border: 1px solid var(--fnd-border);
-}
-.step-card.fnd::before { background: var(--fnd); }
-
-.step-card.do {
-  background: var(--do-soft);
-  border: 1px solid var(--do-border);
-}
-.step-card.do::before { background: var(--do); }
-
-.step-card.sg {
-  background: var(--sg-soft);
-  border: 1px solid var(--sg-border);
-}
-.step-card.sg::before { background: var(--sg); }
-
-.step-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
-}
-.step-title-block {}
-.step-num-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.fnd .step-num-label { color: var(--fnd-dark); }
-.do  .step-num-label { color: rgba(26,140,255,0.7); }
-.sg  .step-num-label { color: rgba(255,107,43,0.7); }
-
-.step-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.2px;
-}
-
-.owner-badge {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  padding: 5px 12px;
-  border-radius: 2px;
-  font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.fnd .owner-badge { background: var(--fnd); color: var(--ink); }
-.do  .owner-badge { background: var(--do);  color: #fff; }
-.sg  .owner-badge { background: var(--sg);  color: #fff; }
-
-.step-desc {
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  font-weight: 300;
-  line-height: 1.65;
-}
-
-/* Sub-bullets */
-.sub-points {
-  margin-top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.sub-point {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  font-weight: 300;
-  line-height: 1.5;
-}
-.sub-point::before {
-  content: '—';
-  flex-shrink: 0;
-  margin-top: 1px;
-  font-size: 10px;
-}
-.fnd .sub-point::before { color: var(--fnd); }
-.do  .sub-point::before { color: var(--do); }
-.sg  .sub-point::before { color: var(--sg); }
-
-/* Arrow between steps */
-.step-arrow {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 76px;
-  margin-bottom: 6px;
-  margin-top: -6px;
-}
-.step-arrow svg {
-  opacity: 0.2;
-}
-
-/* ══ STAKEHOLDER SUMMARY CARDS ══ */
+/* ══ STAKEHOLDER CARDS ══ */
 .stakeholder-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 44px;
+  gap: 14px;
+  margin-bottom: 52px;
 }
-
 .stakeholder-card {
-  border-radius: 6px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 22px 24px;
+  border: 1.5px solid;
   position: relative;
   overflow: hidden;
 }
@@ -379,210 +182,240 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
+  border-radius: 8px 8px 0 0;
 }
-.stakeholder-card.do { background: var(--do-soft); border: 1px solid var(--do-border); }
-.stakeholder-card.do::before { background: var(--do); }
-.stakeholder-card.fnd { background: var(--fnd-soft); border: 1px solid var(--fnd-border); }
+.stakeholder-card.do  { background: var(--do-soft);  border-color: var(--do-border); }
+.stakeholder-card.do::before  { background: var(--do); }
+.stakeholder-card.fnd { background: var(--fnd-soft); border-color: var(--fnd-border); }
 .stakeholder-card.fnd::before { background: var(--fnd); }
-.stakeholder-card.sg { background: var(--sg-soft); border: 1px solid var(--sg-border); }
-.stakeholder-card.sg::before { background: var(--sg); }
+.stakeholder-card.sg  { background: var(--sg-soft);  border-color: var(--sg-border); }
+.stakeholder-card.sg::before  { background: var(--sg); }
 
 .sh-name {
   font-family: 'Syne', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
+  margin-bottom: 4px;
 }
-.do .sh-name { color: var(--do); }
-.fnd .sh-name { color: var(--fnd); }
-.sg .sh-name { color: var(--sg); }
+.stakeholder-card.do  .sh-name { color: var(--do-label); }
+.stakeholder-card.fnd .sh-name { color: var(--fnd-label); }
+.stakeholder-card.sg  .sh-name { color: var(--sg-label); }
 
 .sh-role {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.25em;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: var(--ink-light);
   margin-bottom: 14px;
 }
-.sh-steps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.sh-steps { display: flex; flex-wrap: wrap; gap: 6px; }
 .sh-step-tag {
-  font-size: 10px;
+  font-size: 10.5px;
   font-family: 'DM Mono', monospace;
   padding: 4px 10px;
-  border-radius: 2px;
-  background: rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.08);
-  letter-spacing: 0.04em;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.04);
+  color: var(--ink-mid);
+  border: 1px solid rgba(0,0,0,0.08);
+  letter-spacing: 0.02em;
 }
 
-/* ══ FOOTER ══ */
-.doc-footer {
+/* ══ FLOW CHART ══ */
+.flow-chart {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.flow-connector {
+  position: absolute;
+  left: 32px;
+  top: 44px;
+  bottom: 44px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--do) 0%, var(--do) 16%,
+    var(--fnd) 16%, var(--fnd) 68%,
+    var(--sg) 68%, var(--sg) 100%
+  );
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.flow-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  margin-bottom: 14px;
+}
+.flow-step:last-child { margin-bottom: 0; }
+
+.step-bubble {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+.bubble {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.bubble.fnd { background: var(--fnd); color: #fff; }
+.bubble.do  { background: var(--do);  color: #fff; }
+.bubble.sg  { background: var(--sg);  color: #fff; }
+
+/* Step card */
+.step-card {
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-left: 14px;
+  border: 1.5px solid;
+  position: relative;
+  overflow: hidden;
+}
+.step-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+.step-card.fnd { background: var(--fnd-soft); border-color: var(--fnd-border); }
+.step-card.fnd::before { background: var(--fnd); }
+.step-card.do  { background: var(--do-soft);  border-color: var(--do-border); }
+.step-card.do::before  { background: var(--do); }
+.step-card.sg  { background: var(--sg-soft);  border-color: var(--sg-border); }
+.step-card.sg::before  { background: var(--sg); }
+
+.step-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  padding-top: 24px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 12px;
 }
-.footer-brand {
+.step-num-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.step-card.fnd .step-num-label { color: var(--fnd-dark); }
+.step-card.do  .step-num-label { color: var(--do-label); }
+.step-card.sg  .step-num-label { color: var(--sg-label); }
+
+.step-name {
   font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  color: rgba(255,255,255,0.2);
-  letter-spacing: 0.05em;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.2px;
 }
-.footer-conf {
+
+.owner-badge {
   font-family: 'DM Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1.5px solid;
+}
+.step-card.fnd .owner-badge { background: var(--fnd); color: #fff; border-color: var(--fnd); }
+.step-card.do  .owner-badge { background: var(--do);  color: #fff; border-color: var(--do); }
+.step-card.sg  .owner-badge { background: var(--sg);  color: #fff; border-color: var(--sg); }
+
+.step-desc {
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 2px;
 }
 
-/* ══ MOBILE RESPONSIVE ══ */
-@media (max-width: 640px) {
-  html { font-size: 13px; }
-
-  .page {
-    padding: 32px 20px 48px;
-  }
-
-  /* Header stacks vertically */
-  .doc-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .brand-name { font-size: 28px; }
-  .doc-meta { text-align: left; }
-
-  /* Legend wraps */
-  .legend {
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 32px;
-  }
-  .legend-label { width: 100%; margin-right: 0; margin-bottom: 4px; }
-  .legend-item { padding: 7px 12px; }
-  .legend-text { font-size: 10px; }
-
-  /* Section heading */
-  .section-heading { margin-bottom: 16px; font-size: 9px; }
-
-  /* Stakeholder cards stack */
-  .stakeholder-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-  .stakeholder-card { padding: 18px; }
-  .sh-name { font-size: 16px; }
-
-  /* Flow chart */
-  .flow-chart { margin-bottom: 36px; }
-
-  /* Connector line repositioned for smaller bubbles */
-  .flow-connector { left: 22px; }
-
-  /* Step layout */
-  .flow-step {
-    grid-template-columns: 48px 1fr;
-    margin-bottom: 12px;
-  }
-
-  /* Bubble smaller */
-  .bubble {
-    width: 28px; height: 28px;
-    font-size: 12px;
-  }
-  .step-bubble { padding-top: 14px; }
-
-  /* Step card */
-  .step-card { padding: 14px 16px; margin-left: 8px; }
-
-  /* Step top stacks on mobile */
-  .step-top {
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .owner-badge {
-    align-self: flex-start;
-    font-size: 9px;
-    padding: 4px 10px;
-  }
-  .step-name { font-size: 15px; }
-  .step-num-label { font-size: 8px; }
-  .step-desc { font-size: 12px; }
-
-  /* Sub points */
-  .sub-points { margin-top: 10px; gap: 6px; }
-  .sub-point { font-size: 11px; gap: 8px; }
-
-  /* Arrow */
-  .step-arrow { padding-left: 56px; margin-bottom: 4px; margin-top: -4px; }
-
-  /* Footer */
-  .doc-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding-top: 20px;
-  }
-
-  /* Reduce glow blobs on mobile */
-  .glow-1 { width: 300px; height: 300px; }
-  .glow-2 { width: 250px; height: 250px; }
-  .glow-3 { width: 200px; height: 200px; }
+.sub-points {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-
-@media (max-width: 400px) {
-  .page { padding: 24px 16px 40px; }
-  .brand-name { font-size: 24px; }
-  .step-name { font-size: 14px; }
-  .sh-steps { flex-direction: column; }
+.sub-point {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  color: var(--ink-mid);
+  font-weight: 400;
+  line-height: 1.6;
 }
-
-/* ══ LEAD GEN UNIQUE SECTION ══ */
-.unique-section {
-  margin-bottom: 52px;
+.sub-point::before {
+  content: '–';
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 11px;
+  opacity: 0.5;
 }
+.step-card.fnd .sub-point::before { color: var(--fnd-dark); }
+.step-card.do  .sub-point::before { color: var(--do-label); }
+.step-card.sg  .sub-point::before { color: var(--sg-label); }
+
+.sub-point strong { font-weight: 600; }
+.step-card.fnd .sub-point strong { color: var(--fnd-dark); }
+.step-card.do  .sub-point strong { color: var(--do-label); }
+.step-card.sg  .sub-point strong { color: var(--sg-label); }
+
+.step-arrow {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 78px;
+  margin: 2px 0 4px;
+}
+.step-arrow svg { opacity: 0.18; }
+
+/* ══ UNIQUE LEAD GEN SECTION ══ */
+.unique-section { margin-bottom: 52px; }
 
 .unique-intro {
-  background: rgba(200,245,66,0.07);
-  border: 1px solid rgba(200,245,66,0.2);
-  border-radius: 6px;
+  background: var(--fnd-soft);
+  border: 1.5px solid var(--fnd-border);
+  border-radius: 8px;
   padding: 28px 32px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .unique-intro p {
-  font-size: 14.5px;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.75;
-  font-weight: 300;
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  font-weight: 400;
 }
 .unique-intro p + p { margin-top: 10px; }
-.unique-intro strong { color: var(--fnd); font-weight: 600; }
+.unique-intro strong { color: var(--fnd-dark); font-weight: 600; }
 
 .unique-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .unique-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 6px;
-  padding: 22px 22px;
+  background: var(--surface);
+  border: 1.5px solid var(--rule);
+  border-radius: 8px;
+  padding: 22px;
   position: relative;
   overflow: hidden;
 }
@@ -590,11 +423,11 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
+  height: 3px;
   background: var(--fnd);
   opacity: 0.5;
+  border-radius: 8px 8px 0 0;
 }
-
 .uc-step {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
@@ -605,32 +438,32 @@ body {
 }
 .uc-title {
   font-family: 'Syne', sans-serif;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
-  color: #fff;
+  color: var(--ink);
   margin-bottom: 10px;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 .uc-desc {
   font-size: 12.5px;
-  color: rgba(255,255,255,0.48);
-  font-weight: 300;
-  line-height: 1.65;
+  color: var(--ink-mid);
+  font-weight: 400;
+  line-height: 1.7;
 }
-.uc-desc strong { color: rgba(200,245,66,0.75); font-weight: 500; }
+.uc-desc strong { color: var(--fnd-dark); font-weight: 600; }
 
+/* Differentiator box */
 .differentiator-box {
-  background: var(--ink);
-  border: 1px solid rgba(200,245,66,0.25);
-  border-radius: 6px;
-  padding: 28px 32px;
+  background: var(--surface);
+  border: 1.5px solid var(--rule);
+  border-radius: 8px;
+  padding: 32px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 32px;
   align-items: center;
 }
 
-.diff-left {}
 .diff-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
@@ -641,23 +474,24 @@ body {
 }
 .diff-title {
   font-family: 'Syne', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
-  color: #fff;
-  line-height: 1.25;
-  margin-bottom: 10px;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
-.diff-title span { color: var(--fnd); }
+.diff-title span { color: var(--fnd-dark); }
 .diff-desc {
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
-  line-height: 1.65;
+  color: var(--ink-mid);
+  font-weight: 400;
+  line-height: 1.75;
 }
+.diff-desc strong { color: var(--ink); font-weight: 600; }
 
 .diff-right {
-  border-left: 1px solid rgba(255,255,255,0.07);
-  padding-left: 24px;
+  border-left: 1.5px solid var(--rule);
+  padding-left: 32px;
 }
 .diff-compare { display: flex; flex-direction: column; gap: 10px; }
 .diff-row {
@@ -668,36 +502,76 @@ body {
 .diff-icon {
   width: 20px; height: 20px;
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
   flex-shrink: 0;
   margin-top: 1px;
+  font-weight: 700;
 }
-.diff-icon.them { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.3); }
-.diff-icon.us   { background: rgba(200,245,66,0.15); color: var(--fnd); }
+.diff-icon.them { background: #f0f0ee; color: #bbb; border: 1px solid #e0e0dc; }
+.diff-icon.us   { background: var(--fnd-soft); color: var(--fnd-dark); border: 1px solid var(--fnd-border); }
 .diff-row-text {
   font-size: 12.5px;
-  font-weight: 300;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.55;
 }
-.diff-row.them .diff-row-text { color: rgba(255,255,255,0.35); text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.15); }
-.diff-row.us .diff-row-text   { color: rgba(255,255,255,0.75); }
+.diff-row.them .diff-row-text { color: #bbb; text-decoration: line-through; text-decoration-color: #ddd; }
+.diff-row.us   .diff-row-text { color: var(--ink-mid); }
 
-/* Mobile for new section */
-@media (max-width: 640px) {
+/* ══ FOOTER ══ */
+.doc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px solid var(--rule);
+  padding-top: 24px;
+  margin-top: 4px;
+}
+.footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+}
+.footer-conf {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+/* ══ MOBILE ══ */
+@media (max-width: 680px) {
+  .page { margin: 0; border-radius: 0; padding: 36px 24px 52px; }
+  .doc-header { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 32px; }
+  .brand-name { font-size: 28px; }
+  .doc-meta { text-align: left; }
+  .legend { margin-bottom: 32px; }
+  .stakeholder-row { grid-template-columns: 1fr; gap: 10px; margin-bottom: 36px; }
+  .flow-connector { left: 22px; }
+  .flow-step { grid-template-columns: 48px 1fr; margin-bottom: 10px; }
+  .bubble { width: 28px; height: 28px; font-size: 12px; }
+  .step-bubble { padding-top: 16px; }
+  .step-card { padding: 16px 18px; margin-left: 8px; }
+  .step-top { flex-direction: column; gap: 8px; }
+  .owner-badge { align-self: flex-start; }
+  .step-name { font-size: 15px; }
+  .step-desc { font-size: 12.5px; }
+  .sub-point { font-size: 12px; }
+  .step-arrow { padding-left: 56px; }
   .unique-cards { grid-template-columns: 1fr; gap: 10px; }
-  .differentiator-box { grid-template-columns: 1fr; gap: 16px; }
-  .diff-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); padding-left: 0; padding-top: 16px; }
-  .unique-intro { padding: 20px; }
-  .unique-intro p { font-size: 13px; }
+  .differentiator-box { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+  .diff-right { border-left: none; border-top: 1.5px solid var(--rule); padding-left: 0; padding-top: 20px; }
+  .doc-footer { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
-  <div class="glow glow-3"></div>
 
   <!-- HEADER -->
   <div class="doc-header">
@@ -759,15 +633,12 @@ body {
 
   <!-- FLOW -->
   <div class="section-heading">Sales Process Flow</div>
-
   <div class="flow-chart">
     <div class="flow-connector"></div>
 
-    <!-- STEP 1 — DealersOnline -->
+    <!-- STEP 1 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble do">1</div>
-      </div>
+      <div class="step-bubble"><div class="bubble do">1</div></div>
       <div class="step-card do">
         <div class="step-top">
           <div class="step-title-block">
@@ -786,16 +657,14 @@ body {
 
     <div class="step-arrow">
       <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-        <line x1="7" y1="0" x2="7" y2="14" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,10 7,16 12,10" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="7" y1="0" x2="7" y2="14" stroke="#111" stroke-width="1.5"/>
+        <polyline points="2,10 7,16 12,10" stroke="#111" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
 
-    <!-- STEP 2 — Find and Drive -->
+    <!-- STEP 2 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble fnd">2</div>
-      </div>
+      <div class="step-bubble"><div class="bubble fnd">2</div></div>
       <div class="step-card fnd">
         <div class="step-top">
           <div class="step-title-block">
@@ -806,25 +675,23 @@ body {
         </div>
         <div class="step-desc">Driving a consistent flow of in-market buyers to the platform through multiple channels.</div>
         <div class="sub-points">
-          <div class="sub-point"><strong style="color:rgba(200,245,66,0.8);">Paid Ads (75% lead gen / 25% awareness)</strong> — 75% budget focused on immediate leads; 25% on brand awareness to drive down cost-per-lead over the medium to long term</div>
-          <div class="sub-point"><strong style="color:rgba(200,245,66,0.8);">SEO</strong> — Building domain authority for sustainable, organic traffic growth over time</div>
-          <div class="sub-point"><strong style="color:rgba(200,245,66,0.8);">B2B Partnerships</strong> — Relationships with employee wellness companies and similar organisations to generate referral leads at scale</div>
+          <div class="sub-point"><strong>Paid Ads (75% lead gen / 25% awareness)</strong> — 75% budget focused on immediate leads; 25% on brand awareness to drive down cost-per-lead over the medium to long term</div>
+          <div class="sub-point"><strong>SEO</strong> — Building domain authority for sustainable, organic traffic growth over time</div>
+          <div class="sub-point"><strong>B2B Partnerships</strong> — Relationships with employee wellness companies and similar organisations to generate referral leads at scale</div>
         </div>
       </div>
     </div>
 
     <div class="step-arrow">
       <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-        <line x1="7" y1="0" x2="7" y2="14" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,10 7,16 12,10" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="7" y1="0" x2="7" y2="14" stroke="#111" stroke-width="1.5"/>
+        <polyline points="2,10 7,16 12,10" stroke="#111" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
 
-    <!-- STEP 3 — Find and Drive -->
+    <!-- STEP 3 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble fnd">3</div>
-      </div>
+      <div class="step-bubble"><div class="bubble fnd">3</div></div>
       <div class="step-card fnd">
         <div class="step-top">
           <div class="step-title-block">
@@ -835,24 +702,22 @@ body {
         </div>
         <div class="step-desc">Triage and engage every lead — ensuring no opportunity is dropped or left cold.</div>
         <div class="sub-points">
-          <div class="sub-point"><strong style="color:rgba(200,245,66,0.8);">Credit-worthy leads</strong> — Prioritised immediately for direct outbound calls by the sales team</div>
-          <div class="sub-point"><strong style="color:rgba(200,245,66,0.8);">Non-qualifying leads</strong> — Handed to a WhatsApp AI agent that nurtures the relationship, keeps communication warm, and re-qualifies over time</div>
+          <div class="sub-point"><strong>Credit-worthy leads</strong> — Prioritised immediately for direct outbound calls by the sales team</div>
+          <div class="sub-point"><strong>Non-qualifying leads</strong> — Handed to a WhatsApp AI agent that nurtures the relationship, keeps communication warm, and re-qualifies over time</div>
         </div>
       </div>
     </div>
 
     <div class="step-arrow">
       <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-        <line x1="7" y1="0" x2="7" y2="14" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,10 7,16 12,10" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="7" y1="0" x2="7" y2="14" stroke="#111" stroke-width="1.5"/>
+        <polyline points="2,10 7,16 12,10" stroke="#111" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
 
-    <!-- STEP 4 — Find and Drive -->
+    <!-- STEP 4 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble fnd">4</div>
-      </div>
+      <div class="step-bubble"><div class="bubble fnd">4</div></div>
       <div class="step-card fnd">
         <div class="step-top">
           <div class="step-title-block">
@@ -863,8 +728,8 @@ body {
         </div>
         <div class="step-desc">Dedicated calls focused on completing finance applications and securing bank pre-approvals — removing friction for the customer at every step.</div>
         <div class="sub-points">
-          <div class="sub-point">Agents gather all required information and <strong style="color:rgba(200,245,66,0.8);">populate applications on the customer's behalf</strong> — documents held back for the validation stage only</div>
-          <div class="sub-point">Qualification indicator used as a customer incentive: <em style="color:rgba(255,255,255,0.6);">"Your pre-screening shows a strong chance of approval"</em></div>
+          <div class="sub-point">Agents gather all required information and <strong>populate applications on the customer's behalf</strong> — documents held back for the validation stage only</div>
+          <div class="sub-point">Qualification indicator used as a customer incentive: <em>"Your pre-screening shows a strong chance of approval"</em></div>
           <div class="sub-point">Longer rapport-building calls to understand deal-breakers: balloon payments, alternative vehicle options, monthly payment flexibility</div>
         </div>
       </div>
@@ -872,16 +737,14 @@ body {
 
     <div class="step-arrow">
       <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-        <line x1="7" y1="0" x2="7" y2="14" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,10 7,16 12,10" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="7" y1="0" x2="7" y2="14" stroke="#111" stroke-width="1.5"/>
+        <polyline points="2,10 7,16 12,10" stroke="#111" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
 
-    <!-- STEP 5 — Supergroup -->
+    <!-- STEP 5 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble sg">5</div>
-      </div>
+      <div class="step-bubble"><div class="bubble sg">5</div></div>
       <div class="step-card sg">
         <div class="step-top">
           <div class="step-title-block">
@@ -900,16 +763,14 @@ body {
 
     <div class="step-arrow">
       <svg width="14" height="20" viewBox="0 0 14 20" fill="none">
-        <line x1="7" y1="0" x2="7" y2="14" stroke="white" stroke-width="1.5"/>
-        <polyline points="2,10 7,16 12,10" stroke="white" stroke-width="1.5" fill="none"/>
+        <line x1="7" y1="0" x2="7" y2="14" stroke="#111" stroke-width="1.5"/>
+        <polyline points="2,10 7,16 12,10" stroke="#111" stroke-width="1.5" fill="none"/>
       </svg>
     </div>
 
-    <!-- STEP 6 — Supergroup -->
+    <!-- STEP 6 -->
     <div class="flow-step">
-      <div class="step-bubble">
-        <div class="bubble sg">6</div>
-      </div>
+      <div class="step-bubble"><div class="bubble sg">6</div></div>
       <div class="step-card sg">
         <div class="step-top">
           <div class="step-title-block">
@@ -926,9 +787,7 @@ body {
         </div>
       </div>
     </div>
-
   </div>
-
 
   <!-- UNIQUE LEAD GEN SECTION -->
   <div class="section-heading">What Makes Our Lead Generation Different</div>
@@ -1009,5 +868,3 @@ body {
 </div>
 </body>
 </html>
-find-and-drive-sales-process.html
-Displaying find-and-drive-sales-process.html.
